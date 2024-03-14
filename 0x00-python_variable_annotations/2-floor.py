@@ -2,7 +2,7 @@
 import math
 
 """
-Defines an annotated concat function
+Defines an annotated floor function
 """
 
 
