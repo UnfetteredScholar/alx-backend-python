@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-import math
-
 """
 Defines an annotated floor function
 that returns the floor of a float
 """
+import math
 
 
 def floor(n: float) -> int:
