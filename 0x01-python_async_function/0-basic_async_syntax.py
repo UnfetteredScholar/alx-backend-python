@@ -12,3 +12,4 @@ async def wait_random(max_delay: int = 10) -> float:
 
     time.sleep(delay)
     return delay
+
