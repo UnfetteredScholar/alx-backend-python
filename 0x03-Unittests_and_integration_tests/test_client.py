@@ -3,7 +3,7 @@
 Defines the TestGithubOrgClient class
 """
 import unittest
-from typing import Dict
+from typing import Dict, Any
 from unittest.mock import MagicMock, patch, PropertyMock
 
 from parameterized import parameterized
@@ -66,3 +66,18 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(
                 client_obj.public_repos(), ["Amazon", "Amazon Dev"]
             )
+
+    @parameterized.expand(
+        [
+            ({"license": {"key": "my_license"}}, "my_license", True),
+            ({"license": {"key": "other_license"}}, "my_license", False),
+        ]
+    )
+    def test_has_license(
+        self, repo: Dict[str, Any], license_key: str, result: bool
+    ):
+        """Tests GithubOrgClient.has_license method"""
+
+        self.assertEqual(
+            GithubOrgClient.has_license(repo, license_key), result
+        )
